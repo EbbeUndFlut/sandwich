@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SBA1.0</title>
+</head>
+
+<body>
+    <!-- <div>Sandwichauswahl
+        <ul>
+            <li>HamburgerSandwich mit extra viel Käse</li>
+            <li>Chickenteryjaki roh</li>
+            <li>Alte Ledersohle mit Nietnagel </li>
+        </ul>
+    </div> -->
+    <h1>U-Bahn Brote</h1>
+    <form action="" onsubmit="order()">
+        <select name="sandwiches" id="" onchange="basisSandwich(event)">
+            <option value="hamburger">HamburgerSandwich mit extra viel Käse</option>
+            <option value="chicken">Chickenteryjaki roh</option>
+            <option value="leder">Alte Ledersohle mit Nietnagel</option>
+        </select>
+
+        <div class="gallery">
+
+        </div>
+        <p>zusätzliche Zutaten</p>
+        <div class="zutaten">
+
+        </div>
+        <p>extras</p>
+        <div class="extras">
+            <select name="extra1" id="">
+                <option value="1">...</option>
+                <option value="2">...</option>
+                <option value="3">...</option>
+                <option value="4">...</option>
+            </select>
+            <select name="extra2" id="">
+                <option value="1">...</option>
+                <option value="2">...</option>
+                <option value="3">...</option>
+                <option value="4">...</option>
+            </select>
+        </div>
+        <div class="result">
+
+        </div>
+        <input type="submit" value="Bestellen">
+    </form>
+    <script src="./assets/js/main.js"></script>
+</body>
+
+</html>
