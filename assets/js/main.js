@@ -2,9 +2,26 @@ let gesamtPreis = 0
 let basisPreis = 0
 let zutatenPreis = 0
 let extraPreis = 0
+const apfelmus = 2.49
+const knoblauch = 5.99
+
+const resultDiv = document.getElementsByClassName('result')[0]
+
 
 const calc = (e) => {
     console.log(e.target.value)
+
+    switch (e.target.value) {
+        case 'apfelmus': e.target.checked ? zutatenPreis += apfelmus : zutatenPreis -= apfelmus
+            break
+        case 'knoblauch': e.target.checked ? zutatenPreis += knoblauch : zutatenPreis -= knoblauch
+            break
+        default: console.log('first')
+    }
+
+
+    gesamtPreis = basisPreis + zutatenPreis + extraPreis
+    setResultDiv()
 }
 const basisSandwich = (event) => {
     switch (event.target.value) {
@@ -27,9 +44,8 @@ const createZutaten = (base) => {
     switch (base) {
         case 'hamburger':
             let zutat1 = document.createElement('input')
-            zutat1.setAttribute('type', 'radio')
+            zutat1.setAttribute('type', 'checkbox')
             zutat1.setAttribute('value', 'knoblauch')
-            zutat1.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat1)
 
             let label = document.createElement('label')
@@ -37,21 +53,19 @@ const createZutaten = (base) => {
             parent.appendChild(label)
 
             zutat1 = document.createElement('input')
-            zutat1.setAttribute('type', 'radio')
+            zutat1.setAttribute('type', 'checkbox')
             zutat1.setAttribute('value', 'apfelmus')
-            zutat1.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat1)
 
             label = document.createElement('label')
-            label.innerHTML = "Apfelmus"
+            label.innerHTML = "Apfelmus (+ 2,49€)"
             parent.appendChild(label)
 
             break;
         case 'chicken':
             let zutat2 = document.createElement('input')
-            zutat2.setAttribute('type', 'radio')
+            zutat2.setAttribute('type', 'checkbox')
             zutat2.setAttribute('value', 'beef')
-            zutat2.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat2)
 
             let label1 = document.createElement('label')
@@ -59,9 +73,8 @@ const createZutaten = (base) => {
             parent.appendChild(label1)
 
             zutat2 = document.createElement('input')
-            zutat2.setAttribute('type', 'radio')
+            zutat2.setAttribute('type', 'checkbox')
             zutat2.setAttribute('value', 'banana')
-            zutat2.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat2)
 
             label1 = document.createElement('label')
@@ -71,9 +84,8 @@ const createZutaten = (base) => {
             break;
         case 'leder':
             let zutat3 = document.createElement('input')
-            zutat3.setAttribute('type', 'radio')
+            zutat3.setAttribute('type', 'checkbox')
             zutat3.setAttribute('value', 'senkel')
-            zutat3.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat3)
 
             let label2 = document.createElement('label')
@@ -81,9 +93,8 @@ const createZutaten = (base) => {
             parent.appendChild(label2)
 
             zutat3 = document.createElement('input')
-            zutat3.setAttribute('type', 'radio')
+            zutat3.setAttribute('type', 'checkbox')
             zutat3.setAttribute('value', 'sahne')
-            zutat3.setAttribute('onchange', 'calc(event)')
             parent.appendChild(zutat3)
 
             label2 = document.createElement('label')
@@ -93,11 +104,11 @@ const createZutaten = (base) => {
             break;
 
     }
-
-
 }
 
-
+const setResultDiv = () => {
+    resultDiv.innerHTML = gesamtPreis + '€'
+}
 
 
 
